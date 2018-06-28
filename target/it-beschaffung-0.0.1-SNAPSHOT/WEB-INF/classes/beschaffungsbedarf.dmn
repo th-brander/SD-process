@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="beschaffungsbedarf" name="Beschaffungsbedarf">
+    <decisionTable id="decisionTable" hitPolicy="FIRST">
+      <input id="InputClause_1lov6ey" label="Rahmenvertrag">
+        <inputExpression id="LiteralExpression_0l2my0j" typeRef="string">        <text>type</text>
+</inputExpression>
+      </input>
+      <input id="input1" label="Betrag">
+        <inputExpression id="inputExpression1" typeRef="double">        <text>amount</text>
+</inputExpression>
+      </input>
+      <output id="output1" label="Handlungsweise" name="result" typeRef="string" />
+      <rule id="row-591670827-3">
+        <inputEntry id="UnaryTests_1w54yco">        <text><![CDATA["Ja"]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0aiwaxw">        <text></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1kdakvp">        <text><![CDATA["Rahmenvertrag"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-591670827-1">
+        <inputEntry id="UnaryTests_0zntpkd">        <text><![CDATA["Nein"]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0qu4w90">        <text><![CDATA[>500]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0xaayot">        <text><![CDATA["Komplexes Angebot"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-591670827-2">
+        <inputEntry id="UnaryTests_0zdfrrl">        <text><![CDATA["Nein"]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_14yfn0o">        <text><![CDATA[<=500]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0rkbaz1">        <text><![CDATA["Einfaches Angebot"]]></text>
+</outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

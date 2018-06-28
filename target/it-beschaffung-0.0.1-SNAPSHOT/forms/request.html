@@ -1,0 +1,191 @@
+
+<form role="form" name="requestForm" class="form-horizontal">
+
+	<h3>Kontaktdaten</h3>
+	<hr />
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label id="focusedInput" for="title">Anrede</label>
+		</div>
+		<div class="col-md-2">
+			<select cam-variable-name="title" cam-variable-type="String"
+				id="title" name="title" class="form-control" type="text">
+				<option>Herr</option>
+				<option>Frau</option>
+			</select>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-2">
+			<label id="focusedInput" for="dat">Datum</label>
+		</div>
+		<div class="col-md-3">
+			<input type="text" cam-variable-name="dat" cam-variable-type="Date"
+				class="form-control" datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+				is-open="dateFieldOpened" /> <span class="input-group-btn">
+				<button type="button" class="btn btn-default"
+					ng-click="open($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+			</span>
+			<script cam-script type="text/form-script">
+  				$scope.open = function($event) {
+    			$event.preventDefault();
+   				$event.stopPropagation();
+				$scope.dateFieldOpened = true;
+ 				 };
+			</script>
+		</div>
+
+	</div>
+
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label id="focusedInput" for="firstN">Vorname</label>
+		</div>
+		<div class="col-md-3">
+			<input cam-variable-name="firstN" cam-variable-type="String"
+				id="firstN" name="firstN" class="form-control" type="text" />
+		</div>
+		<div class="col-md-2">
+			<label id="focusedInput" for="lastN">Nachname</label>
+		</div>
+		<div class="col-md-3">
+			<input cam-variable-name="lastN" cam-variable-type="String"
+				id="lastN" name="lastN" class="form-control" type="text" />
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label id="focusedInput" for="phoneN">Tel-Nr.</label>
+		</div>
+		<div class="col-md-3">
+			<input cam-variable-name="phoneN" cam-variable-type="String"
+				id="phoneN" name="phoneN" class="form-control" type="tel" />
+		</div>
+		<div class="col-md-2">
+			<label id="focusedInput" for="example-email-input">Email</label>
+		</div>
+		<div class="col-md-3">
+			<input cam-variable-name="email" cam-variable-type="String" class="form-control" type="email"
+				value="bootstrap@example.com" id="focusedInput">
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	</br>
+	
+	<h3>Ticketbeschreibung</h3>
+	<hr />
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label id="focusedInput" for="tickettyp">Typ</label>
+		</div>
+		<div class="col-md-3">
+			<select cam-variable-name="tickettyp" cam-variable-type="String"
+				id="tickettyp" name="tickettyp" class="form-control" type="text">
+				<option>Incident</option>
+				<option>Service Request</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<label id="focusedInput" for="User">User</label>
+		</div>
+		<div class="col-md-3">
+			<select cam-variable-name="user" cam-variable-type="String"
+				id="user" name="user" class="form-control" type="text">
+				<option>User</option>
+				<option>VIP-User</option>
+			</select>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-md-2">
+			<label id="focusedInput" for="description">Beschreibung</label>
+		</div>
+		<div class="col-md-8">
+			<Textarea rows="5" cam-variable-name="description"
+				cam-variable-type="String" id="description" name="description"
+				class="form-control" type="text"> </Textarea>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-9">
+			Ebene 1: .col-sm-9
+			<div class="row">
+				<div class="col-xs-8 col-sm-6">
+					<label class="control-label col-md-2" for="bezeichnung">Bezeichnung</label>
+				</div>
+				<div class="col-xs-4 col-sm-6">
+					<div class="form-group">
+						<div class="col-md-6">
+							<input cam-variable-name="bezeichnung" cam-variable-type="String"
+								id="bezeichnung" class="form-control" type="text"  />
+							<div class="help">(e.g. &quot;Camunda BPM &quot;)</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-9">
+			Ebene 1: .col-sm-9
+			<div class="row">
+				<div class="col-xs-8 col-sm-6"></div>
+				<div class="col-xs-4 col-sm-6"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+
+
+		<div class="form-group">
+			<label class="control-label col-md-4" for="amount">Betrag</label>
+			<div class="col-md-8">
+				<input cam-variable-name="amount" cam-variable-type="Double"
+					id="amount" name="amount" class="form-control" type="text" />
+				<div class="help">(e.g. &quot;30.00&quot;)</div>
+
+				<p ng-show="invoiceForm.amount.$error.camVariableType">Note:
+					Input must be a 'Double'.</p>
+
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-4" for="name">Name</label>
+			<div class="col-md-8">
+				<input cam-variable-name="name" cam-variable-type="String" id="name"
+					name="name" class="form-control" type="text"  />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-4" for="ticketID">TicketID</label>
+			<div class="col-md-8">
+				<input cam-variable-name="ticketID" cam-variable-type="String"
+					id="ticketID" name="ticketID" class="form-control" type="text" />
+			</div>
+		</div>
+
+
+
+
+		<div class="form-group">
+			<label class="control-label col-md-4" for="amount">Rahmenvertrag</label>
+			<div class="col-md-8">
+				<select cam-variable-name="type" cam-variable-type="String"
+					class="form-control">
+					<option>Ja</option>
+					<option>Nein</option>
+				</select>
+			</div>
+		</div>
+</form>

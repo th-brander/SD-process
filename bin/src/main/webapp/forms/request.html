@@ -1,0 +1,57 @@
+<form role="form" name="requestForm"
+      class="form-horizontal">
+
+  <div class="form-group">
+  
+  <div class="form-group">
+    <label class="control-label col-md-4"
+           for="bezeichnung">Bezeichnung</label>
+    <div class="col-md-8">
+      <input cam-variable-name="bezeichnung"
+             cam-variable-type="String"
+             id="bezeichnung"
+             class="form-control"
+             type="text"
+             required />
+      <div class="help">
+        (e.g. &quot;Camunda BPM &quot;)
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-md-4"
+           for="amount">Betrag</label>
+    <div class="col-md-8">
+      <input cam-variable-name="amount"
+             cam-variable-type="Double"
+             id="amount"
+             name="amount"
+             class="form-control"
+             type="text"
+             required />
+      <div class="help">
+        (e.g. &quot;30.00&quot;)
+      </div>
+
+      <p ng-show="invoiceForm.amount.$error.camVariableType">
+        Note: Input must be a 'Double'.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-md-4"
+           for="amount">Rahmenvertrag</label>
+    <div class="col-md-8">
+      <select cam-variable-name="type"
+              cam-variable-type="String"
+              class="form-control">
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
+    </div>
+  </div>
+
+</form>
