@@ -17,6 +17,7 @@ src/main/.DS_Store
 /target/
 
 # Eclipse
+.class
 .classpath
 .project
 .settings/
