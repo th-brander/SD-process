@@ -1,5 +1,5 @@
 
-![Alt-Text](/Users\Javis2.0\Downloads\OriginalPng.png)
+![Alt-Text](img/Ticketbearbeitung.png)
 
 # Entwicklungsumgebung
 ---
