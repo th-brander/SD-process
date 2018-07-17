@@ -26,6 +26,48 @@ Das Rechenzentrum (RZ) ist der zentrale IT-Dienstleister der Technischen Hochsch
 
 ## Abgrenzung und Beschreibung der Prozesse und Entscheidungen (6 Punkte)
 
+### CMMN-Beschreibung
+
+Um eine geeignete Lösung für das geöffnete Ticket zu finden, wurde CMMN-Diagramm erstellt. Zunächst wurde das CasePlanModel geöffnet, damit es das Gesamtmodell des Vorgangs der Suche nach einer passenden Lösung beinhaltet.
+Dabei wurden eine 3 Stages erstellt:
+- Das erste ist zur Identifizierung des Problems. 
+- Das zweite ist dafür, welche Methode verwendet wird, um eine mögliche Lösungen zu finden. 
+- Das letzte wurde erstellt, um die gefundene Lösungen zu testen und die beste Lösung auszuwählen.
+Sobald der EventListener *Lösung passend* eintritt, wird die Bedingung am Milestone *Problem gelöst* erfüllt und der Milestone damit erreicht. Das Erreichen des Milestone *Problem gelöst* führt zur Erfüllung des Ausgangskriteriums am unteren Sentry des gesamten CasePlanModels. Der Fall wird damit abgeschlossen.
+Falls es keine Lösung vorhanden ist, wird der EventListener *Lösung unpassend* aktiviert und der Fall abgeschlossen.
+
+### DMN-Beschreibung:
+
+Um die Prioritäten zum Starten der Behandlung von Problemen zu bestimmen, wird eine Prioritätsbewertungstabelle erstellt.
+Diese Tabelle wurde auf 2 Hauptspalten kategorisiert:
+Das Inputfeld umfasst vier Spalten: *Typ des Tickets*, *Benutzerdaten*, *Benutzerattitude zum Problem*,"Anzahl der betroffenen Nutzer"
+Der Output: *Priorität des Tickets*
+
+Zur Ausführung der DMN-Tabellen auf der Engine muss die Business Rule Task eingesetzt werden. Das kommt zuerst durch die Erstellung einer DMN-Tabelle über den Camunda Modeler vor. Danach muss im BPMN Prozess die DMN-Tabelle mit dem Business Rule Task über das Feld „Decision ref" im Properties Panel miteinander verbunden werden. Es muss den Namen der DMN-Tabelle über das Feld „Decision ref'' eingetragen werden, um die DMN-Tabelle mit dem Business Rule Task zu verknüpfen.
+Es wurde im Properties Panel eine „Binding" als „latest“ und eine „Map Decision Result" als „singleEntry“ gewählt. Schließlich wurde das Feld „Result Variable“ durch die gleiche Variable „Priorität des Tickets“ wie in der DMN-Tabelle (Output).
+geschrieben. 
+
+
+### HTML Formularentwurf
+
+Nach dem Erhalt die Informationen über das Problem vom Benutzer per E-mail, Fax oder Telefon, wird ein Ticket geöffnet. 
+Zum Entwurf eines Tickets wurde dafür Hypertext Markup Language (HTML) verwendet. Dabei kann mehrere Tools wie zum Beispiel "NotePad ++" "Komodo Edit“, "Eclipse" usw. benutzt werden.
+Das Ticket enthält diese folgenden Informationen:
+Personalangaben (Vorname, Nachname, Tel-Nr, Email)
+Anrede
+Datum
+Ticket ID 
+Status
+Typ (Incident, Service request)
+User (VIP-User, User)
+Beschreibung des Problems
+Die Datei muss im Dateityp (.html) abgespeichert werden.
+Hierbei muss Html-Datei im Maven-Projekt im Verzeichnis „src/main/webapp/forms“ hergestellt werden. 
+Um die Html-Datei einem Task oder Start Event im ''Camunda Modeler'' zuzuweisen, wird erst auf das Element geklickt und es öffnet sich das Properties Panel. In dem Feld „Form Key“ muss der Name der Html-Datei nach ''embedded:app:forms/'' eingegeben werden und die Änderungen abgespeichert.
+In Eclipse soll für ''Pom.xml'' Datei Run As als 5 Maven install gemacht werden.
+Nach Run As wurde eine (0.0.1-SNAPSHOT.war) generiert, die nachher im Pfad (Server\apache-tomcat-8.0.47\webapps) hinzugefügt wird.
+Schließlich wird ''Camunda BPM Engine'' geschaltet und durch Benutzer Name, Passwort (demo, demo) geöffnet. Im Camunda BPM Engine wird in Camunda Tasklist auf das taste Start Process geklickt, um das benötigte Projekt zu starten und die Html-Datei als Ticket darzustellen.
+
 ## Erläuterung fachlicher und technischer Modellierungsentscheidungen (6 Punkte)
 ### Pool Call-Center-Agent
 Im Pool *Call-Center-Agent* versucht der Agent das Problem selbstständig zu erfassen und zu lösen. Hat er eine Lösung gefunden wird es dem Kunden direkt mitgeteilt. Ist keine Lösung zu finden, wird das Problem an den First-Level-Support berichtet. Dieser Vorgang ist manuell durchzuführen und ist somit nicht technisch in Camunda BPM implementiert.
@@ -41,4 +83,4 @@ Im Pool *First-Level-Support* wurde das *Start Event* anstelle von *Massage Star
 ## potenzielle Verknüpfungen zu anderen Prozessen (3 Punkte)
 
 
-This is a link to 
+
