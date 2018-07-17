@@ -28,6 +28,8 @@ Das Rechenzentrum (RZ) ist der zentrale IT-Dienstleister der Technischen Hochsch
 
 ### CMMN-Beschreibung
 
+![Alt-Text](img/CMMN.png)
+
 Um eine geeignete Lösung für das geöffnete Ticket zu finden, wurde CMMN-Diagramm erstellt. Zunächst wurde das CasePlanModel geöffnet, damit es das Gesamtmodell des Vorgangs der Suche nach einer passenden Lösung beinhaltet.
 Dabei wurden eine 3 Stages erstellt:
 - Das erste ist zur Identifizierung des Problems. 
@@ -37,6 +39,8 @@ Sobald der EventListener *Lösung passend* eintritt, wird die Bedingung am Miles
 Falls es keine Lösung vorhanden ist, wird der EventListener *Lösung unpassend* aktiviert und der Fall abgeschlossen.
 
 ### DMN-Beschreibung:
+
+![Alt-Text](img/DMN.png)
 
 Um die Prioritäten zum Starten der Behandlung von Problemen zu bestimmen, wird eine Prioritätsbewertungstabelle erstellt.
 Diese Tabelle wurde auf 2 Hauptspalten kategorisiert:
