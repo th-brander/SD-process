@@ -40,7 +40,7 @@ Falls es keine Lösung vorhanden ist, wird der EventListener *Lösung unpassend*
 
 ### DMN-Beschreibung:
 
-![Alt-Text](img/DMN.png)
+![Alt-Text](img/DMN.PNG)
 
 Um die Prioritäten zum Starten der Behandlung von Problemen zu bestimmen, wird eine Prioritätsbewertungstabelle erstellt.
 Diese Tabelle wurde auf 2 Hauptspalten kategorisiert:
