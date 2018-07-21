@@ -79,13 +79,20 @@ Im Pool *Call-Center-Agent* versucht der Agent das Problem selbstständig zu erf
 Im Pool *First-Level-Support* wurde das *Start Event* anstelle von *Massage Start Event* verwendet, da sonst beim Starten des Prozesses, Camunda eine technische Implementierung erwartet und somit eine Fehlermeldung ausgibt. 
 - Der Subprozess *Ticket eröffnen* stellt dem Benutzer erstmals ein Formular (Request.html) zur Verfügung, welches ausgefüllt werden muss. Im Anschluss wird ein Entscheidungsprozess gestartet, welches das Ticket nach Priorität (hoch, mittel, niedrig) einstuft. Die Erfassten Daten werden im nächsten Schritt in einer H2 Datenbank gespeichert. 
 - In allen *Send Tasks* wurde ein Java Programm implementiert. Beim der Ausführung wird aus der H2 Datenbank die TicketID des letzten Eintrages ausgelesen und mit einer vorgefertigten Nachricht an den Kunden gesendet. Es gibt drei Varianten von Mitteilungen (Bestätigung, Problem gelöst und Problem nicht lösbar).
-- Insgesamt gibt es zwei verschiedene HTML-Formulare (Request.html,Request1.html) die jedem *User Task* zugeordnet sind. Request.html ist für das erstmalige erfassen eines Problems. Request1.html wird dazu genutzt, um weitere Informationen zum Ticket hinzuzufügen.
+- Insgesamt gibt es zwei verschiedene HTML-Formulare (Request.html,Request1.html) die jedem *User Task* zugeordnet sind. Request.html ist für das erstmalige erfassen eines Problems (siehe Abbildung). Request1.html wird dazu genutzt, um weitere Informationen zum Ticket hinzuzufügen.
 
+<img src="img/Request-Form.png" width="600">
 
 
 - Für das Erfassen und die Bearbeitung von Tickets wurde eine UserForm entwickelt. Camunda bietet die Möglichkeit embedded UserForm als HTML JavaScript und Bootstrap
 
 ## Reflexion von Schwachstellen und Optionen für Verbesserungen (3 Punkte)
+Cammunda ist ein mächtiges Werkzeug, um Prozesse aus dem Geschäftumfeld technisch abzubilden. Jedoch erfordert es sehr viel technisches 
+Know-How. Wärend der technischen Implementierung des Prozesses (Ticketbearbeitung), wurden die Themenfelder H2 Datenbank, Webserver, Maven, XML, SQL, Java, JavaScript, HTML und Rest-API berührt. Für das Projekt wurde die Entwicklungsumgebung Eclipse verwendet, um Java Programme zu entwickeln. Es wurden mehrere Programme geschrieben z.B für das Beschreiben und Auslesen einer H2 Datenbank oder das versenden von E-Mails. 
+Manchmal war es sehr frustrierend wenn Camunda eine Fehlermeldung ausgegeben hat und man im Internet nur sehr wenig darüber gefunden hat.
+Also wenn ein Unternehmen Camunda BPM verwenden möchte, empfiehlt es sich wirklich ein Paar Lehrgänge zu absolvieren und auf den Support von Camunda zurückzugreifen. 
+Camunda ist aus meiner Sicht nicht wirklich für diesen Prozess geeignet, denn hier sind viele Benutzerinteraktionen von nöten. 
+Diese lassen sich von Camunda nicht wirklich abbilden. Streng gesehen müsste man den Gesamtprozess in viele kleine Prozesse aufteilen wie z.B. in Ticket erfassen, Ticket suchen, Ticket weiterleiten, Ticket updaten, Ticket schließen, Lösung finden. Diese Prozesse können dann auf die Informationen der Datenbank zugreifen.
 
 ## Potenzielle Verknüpfungen zu anderen Prozessen (3 Punkte)
 
