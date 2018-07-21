@@ -82,11 +82,17 @@ Im Pool *First-Level-Support* wurde das *Start Event* anstelle von *Massage Star
 - Insgesamt gibt es zwei verschiedene HTML-Formulare (Request.html,Request1.html) die jedem *User Task* zugeordnet sind. Request.html ist für das erstmalige erfassen eines Problems. Request1.html wird dazu genutzt, um weitere Informationen zum Ticket hinzuzufügen.
 
 
+
 - Für das Erfassen und die Bearbeitung von Tickets wurde eine UserForm entwickelt. Camunda bietet die Möglichkeit embedded UserForm als HTML JavaScript und Bootstrap
 
 ## Reflexion von Schwachstellen und Optionen für Verbesserungen (3 Punkte)
 
-## potenzielle Verknüpfungen zu anderen Prozessen (3 Punkte)
+## Potenzielle Verknüpfungen zu anderen Prozessen (3 Punkte)
 
+Es gibt zwei Möglichkeiten, Unser Prozess zu anderen Prozessen zu verknüpfen.
+•	Passwort-Vergessen
+•	Campuscard-Defekt
+Zum einen Falls jemand sein Passwort vom Meincampus-Portal der Technischen Hochschule Brandenburg vergessen hat und auf Zugangsdaten-vergessen geklickt , kann das Rechenzentrum dafür ein Ticket eröffnen und daran arbeiten , bis ein neues Passwort erstellt wird.
+Zum anderen wenn die Campuscard eines Studierendes defekt ist soll der Studierende persönlich im Studierendensekretariat die Campuscard abgeben. Das Studierendensekretariat leitet die Campuscard an Rechenzentrum weiter, das die Campuscard mit einem Lesegerät überprüft. Nunmehr kann das Rechenzentrum dafür ein Ticket eröffnen und nachher das Studierendensekretariat benachrichtigen , ob die Campuscard defekt oder nicht ist.
 
 
