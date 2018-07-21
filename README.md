@@ -1,6 +1,12 @@
 
 # Prozess: Ticketverarbeitung
+## IST-Zustand
+![Alt-Text](img/Ticketbearbeitung_IST.png)
+
+## Soll-Zustand
 ![Alt-Text](img/Ticketbearbeitung.png)
+
+
 
 # Entwicklungsumgebung
 ---
@@ -8,7 +14,6 @@
 - Eclipse IDE for Java Developers (Version: Oxygen.3a Release (4.7.3a))
 - [Camunda BPM Tomcat 7.8.0](https://camunda.org/release/camunda-bpm/tomcat/7.8/camunda-bpm-tomcat-7.8.0.zip)
 - [H2-Database Java Library (h2-1.4.197)](http://www.h2database.com/html/main.html) 
-
 
 
 ## Voraussetzung:
@@ -87,6 +92,9 @@ Im Pool *First-Level-Support* wurde das *Start Event* anstelle von *Massage Star
 - Für das Erfassen und die Bearbeitung von Tickets wurde eine UserForm entwickelt. Camunda bietet die Möglichkeit embedded UserForm als HTML JavaScript und Bootstrap
 
 ## Reflexion von Schwachstellen und Optionen für Verbesserungen (3 Punkte)
+Im IST-Zustand wurden alle spezifizierten Tasks technisch implement. Jedoch sind noch einige Aufgaben offen geblieben.  
+Das BPMN-Modell musste mehrfach und bis zum Schluss überarbeitet werden, da es der technischen Implementierung zu wieder läuft.
+Der Ist-Zustand ist im Bereich Second-Level-Support fehlerhaft. Denn das *Timer Event* produziert bei jedem durchlauf einen Token. Desshalb wurde eine Alternative modelliert, welches in dem Soll-Zustand zu finden ist. Das schwierige dabei ist das *Error Event* technisch zu implementieren. Nach stundenlanger Recherche im Internet könnte der Ansatz, der unter der URL:https://medium.com/@stephenrussett/throwing-bpmn-errors-with-javascript-in-camunda-c678f4b7d9ff](https://medium.com/@stephenrussett/throwing-bpmn-errors-with-javascript-in-camunda-c678f4b7d9ff) zufinden ist,die Lösung sein. Die Lösung ist demnach ein *Script Task*, welches ein Fehler bei der Überprüfung erzeugen kann, welches von dem *Error Event* aufgefangen wird.
 Cammunda ist ein mächtiges Werkzeug, um Prozesse aus dem Geschäftumfeld technisch abzubilden. Jedoch erfordert es sehr viel technisches 
 Know-How. Wärend der technischen Implementierung des Prozesses (Ticketbearbeitung), wurden die Themenfelder H2 Datenbank, Webserver, Maven, XML, SQL, Java, JavaScript, HTML und Rest-API berührt. Für das Projekt wurde die Entwicklungsumgebung Eclipse verwendet, um Java Programme zu entwickeln. Es wurden mehrere Programme geschrieben z.B für das Beschreiben und Auslesen einer H2 Datenbank oder das versenden von E-Mails. 
 Manchmal war es sehr frustrierend wenn Camunda eine Fehlermeldung ausgegeben hat und man im Internet nur sehr wenig darüber gefunden hat.
