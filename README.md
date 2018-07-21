@@ -27,7 +27,7 @@ varchar(15), phoneN varchar(15),email varchar(30), description clob,PRIMARY KEY 
 ````
 
 ## Einordnung des Themas in die Prozess-Landschaft (2 Punkte) (PB)
-Das Rechenzentrum (RZ) ist der zentrale IT-Dienstleister der Technischen Hochschule Brandenburg. Es stellt der Hochschule ein breites Spektrum an Dienstleistungen aus den Bereichen Rechen- und Datendienste, Kommunikation sowie Anwendungen und Prozessunterstützungen zur Verfügung. Neben Basisdienstleistungen wie Email-Server, Datennetz, Telefonnetz, WLAN stellt das RZ eine Virtuell Desktop Infrastucture (VDI) zur Verfügung. Die steigende Komplexität der IT-Dienste des RZ und die steigende Anzahl von Anfragen von Studierenden, Instituten, anderen Hochschulen und Unternehmen nach den IT-Diensten des RZ, ist es unerlässlich, ein IT-Service Management (ITSM) zu etablieren. Der Service Desk ist ein Bestandteil dieses ITSM.
+Das Rechenzentrum (RZ) ist der zentrale IT-Dienstleister der Technischen Hochschule Brandenburg. Es stellt der Hochschule ein breites Spektrum an Dienstleistungen aus den Bereichen Rechen- und Datendienste, Kommunikation sowie Anwendungen und Prozessunterstützungen zur Verfügung. Neben Basisdienstleistungen wie Emailserver, Datennetz, Telefonnetz, WLAN stellt das RZ eine Virtual Desktop Infrastructure (VDI) zur Verfügung. Die steigende Komplexität der IT-Dienste des RZ und die steigende Anzahl von Anfragen von Studierenden, Instituten, anderen Hochschulen und Unternehmen nach den IT-Diensten des RZ, ist es unerlässlich, ein IT-Service Management (ITSM) zu etablieren. Der Service Desk ist ein Bestandteil dieses ITSM.
 
 ## Abgrenzung und Beschreibung der Prozesse und Entscheidungen (6 Punkte)
 
@@ -92,17 +92,17 @@ Im Pool *First-Level-Support* wurde das *Start Event* anstelle von *Massage Star
 - Für das Erfassen und die Bearbeitung von Tickets wurde eine UserForm entwickelt. Camunda bietet die Möglichkeit embedded UserForm als HTML JavaScript und Bootstrap
 
 ## Reflexion von Schwachstellen und Optionen für Verbesserungen (3 Punkte) (PB)
-Im IST-Zustand wurden alle spezifizierten Tasks technisch implement. Jedoch sind noch einige Aufgaben offen geblieben.  
+Im IST-Zustand wurden alle spezifizierten Tasks technisch implementiert. Jedoch sind noch einige Aufgaben offengeblieben.  
 Das BPMN-Modell musste mehrfach und bis zum Schluss überarbeitet werden, da es der technischen Implementierung zu wieder läuft.
-Der Ist-Zustand ist im Bereich Second-Level-Support fehlerhaft. Denn das *Timer Event* produziert bei jedem durchlauf einen Token. Desshalb wurde eine Alternative modelliert, welches in dem Soll-Zustand zu finden ist. Das schwierige dabei ist das *Error Event* technisch zu implementieren. Nach stundenlanger Recherche im Internet könnte der Ansatz, der unter folgernder URL zufinden ist,die Lösung sein:
+Der Ist-Zustand ist im Bereich Second-Level-Support fehlerhaft. Denn das *Timer Event* produziert bei jedem Durchlauf einen Token. Deshalb wurde eine Alternative modelliert, welches in dem Soll-Zustand zu finden ist. Das Schwierige dabei ist das *Error Event* technisch zu implementieren. Nach stundenlanger Recherche im Internet könnte der Ansatz, der unter folgernder URL zu finden ist,die Lösung sein:
 - [https://medium.com/@stephenrussett/throwing-bpmn-errors-with-javascript-in-camunda-c678f4b7d9ff](https://medium.com/@stephenrussett/throwing-bpmn-errors-with-javascript-in-camunda-c678f4b7d9ff). 
 
 Die Lösung ist demnach ein *Script Task*, welches ein Fehler bei der Überprüfung erzeugen kann, welches von dem *Error Event* aufgefangen werden kann.
-Cammunda ist ein mächtiges Werkzeug, um Prozesse aus dem Geschäftumfeld technisch abzubilden. Jedoch erfordert es sehr viel technisches 
-Know-How. Wärend der technischen Implementierung des Prozesses (Ticketbearbeitung), wurden die Themenfelder H2 Datenbank, Webserver, Maven, XML, SQL, Java, JavaScript, HTML und Rest-API berührt. Für das Projekt wurde die Entwicklungsumgebung Eclipse verwendet, um Java Programme zu entwickeln. Es wurden mehrere Programme geschrieben z.B für das Beschreiben und Auslesen einer H2 Datenbank oder das versenden von E-Mails. 
-Manchmal war es sehr frustrierend wenn Camunda eine Fehlermeldung ausgegeben hat und man im Internet nur sehr wenig darüber gefunden hat.
+Cammunda ist ein mächtiges Werkzeug, um Prozesse aus dem Geschäftsumfeld technisch abzubilden. Jedoch erfordert es sehr viel technisches 
+Know-How. Während der technischen Implementierung des Prozesses (Ticketbearbeitung), wurden die Themenfelder H2 Datenbank, Webserver, Maven, XML, SQL, Java, JavaScript, HTML und Rest-API berührt. Für das Projekt wurde die Entwicklungsumgebung Eclipse verwendet, um Java Programme zu entwickeln. Es wurden mehrere Programme geschrieben z.B. für das Beschreiben und Auslesen einer H2 Datenbank oder das versenden von E-Mails. 
+Manchmal war es sehr frustrierend, wenn Camunda eine Fehlermeldung ausgegeben hat und man im Internet nur sehr wenig darüber gefunden hat.
 Also wenn ein Unternehmen Camunda BPM verwenden möchte, empfiehlt es sich wirklich ein Paar Lehrgänge zu absolvieren und auf den Support von Camunda zurückzugreifen. 
-Camunda ist aus meiner Sicht nicht wirklich für diesen Prozess geeignet, denn hier sind viele Benutzerinteraktionen von nöten. 
+Camunda ist aus meiner Sicht nicht wirklich für diesen Prozess geeignet, denn hier sind viele Benutzerinteraktionen von Nöten. 
 Diese lassen sich von Camunda nicht wirklich abbilden. Streng gesehen müsste man den Gesamtprozess in viele kleine Prozesse aufteilen wie z.B. in Ticket erfassen, Ticket suchen, Ticket weiterleiten, Ticket updaten, Ticket schließen, Lösung finden. Diese Prozesse können dann auf die Informationen der Datenbank zugreifen.
 
 ## Potenzielle Verknüpfungen zu anderen Prozessen (3 Punkte)
